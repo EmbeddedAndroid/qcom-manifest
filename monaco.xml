@@ -14,9 +14,11 @@
   <!-- Mainline Linux has the VENTUNO Q device tree and the Monaco EL2 overlay. -->
   <project path="linux"                                        name="torvalds/linux.git"        revision="refs/tags/v7.3-rc4" clone-depth="1" />
 
-  <!-- Monaco support under upstream review: TF-A Gerrit topic qti-monaco,
-       OP-TEE pull request 8053 and the U-Boot series on the U-Boot list. -->
-  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="05167d7afe9cff543478c869a373c37a072b9282" upstream="monza"/>
+  <!-- Monaco support under upstream review: TF-A Gerrit topic qti-monaco
+       with the SAIL notification (Gerrit 54579) and the VENTUNO Q reset
+       fixes, OP-TEE pull request 8053 with the Monaco PAS pseudo-TA, and
+       the U-Boot series on the U-Boot list. -->
+  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="f02b7297ce5c2fbbeed04521733d24faae69ae54" upstream="ventuno-q"/>
   <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="1ca3362fc6db19c5f2dc01b7763020eff24f9183" upstream="monza"/>
-  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="2d3dcef42b4ee61724b5e0070d54acbdc0791f30" upstream="monza"/>
+  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="205246892290e783722bb3543868d2ca12674be4" upstream="ventuno-q"/>
 </manifest>
