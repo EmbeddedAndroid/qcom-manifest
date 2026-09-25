@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <include name="common.xml" />
+  <remote name="ldts"            fetch="https://github.com/ldts" />
+  <remote name="embeddedandroid" fetch="https://github.com/EmbeddedAndroid" />
+
+  <project path="build" remote="ldts" name="qcom-buildroot.git" revision="main">
+    <linkfile src="monaco.mk" dest="build/Makefile" />
+  </project>
+
+  <remove-project                      name="linaro-swg/linux.git" />
+  <remove-project                      name="OP-TEE/optee_os.git" />
+
+  <!-- Mainline Linux has the VENTUNO Q device tree and the Monaco EL2 overlay. -->
+  <project path="linux"                                        name="torvalds/linux.git"        revision="refs/tags/v7.3-rc4" clone-depth="1" />
+
+  <!-- Monaco support under upstream review: TF-A Gerrit topic qti-monaco,
+       OP-TEE pull request 8053 and the U-Boot series on the U-Boot list. -->
+  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="05167d7afe9cff543478c869a373c37a072b9282" upstream="monza"/>
+  <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="1ca3362fc6db19c5f2dc01b7763020eff24f9183" upstream="monza"/>
+  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="2d3dcef42b4ee61724b5e0070d54acbdc0791f30" upstream="monza"/>
+</manifest>
