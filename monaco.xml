@@ -11,14 +11,21 @@
   <remove-project                      name="linaro-swg/linux.git" />
   <remove-project                      name="OP-TEE/optee_os.git" />
 
-  <!-- Mainline Linux has the VENTUNO Q device tree and the Monaco EL2 overlay. -->
-  <project path="linux"                                        name="torvalds/linux.git"        revision="refs/tags/v7.3-rc4" clone-depth="1" />
+  <!-- linux-next with Monaco and VENTUNO Q patches not submitted yet:
+       DSP (PAS) and audio restart fixes, the maxcpus fixes, and the fixes
+       for the PCIe0 stall and AER flood behind the PI7C9X2G304 switch. -->
+  <project path="linux"                remote="embeddedandroid" name="linux.git"                revision="985b2f70cf1528955befe96fde1d6151ca62683e" upstream="monza" clone-depth="1" />
 
-  <!-- Monaco support under upstream review: TF-A Gerrit topic qti-monaco
-       with the SAIL notification (Gerrit 54579) and the VENTUNO Q reset
-       fixes, OP-TEE pull request 8053 with the Monaco PAS pseudo-TA, and
-       the U-Boot series on the U-Boot list. -->
-  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="f02b7297ce5c2fbbeed04521733d24faae69ae54" upstream="ventuno-q"/>
-  <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="1ca3362fc6db19c5f2dc01b7763020eff24f9183" upstream="monza"/>
+  <!-- Monaco support under upstream review, plus patches not submitted
+       yet that the board test needs. TF-A: Gerrit topic qti-monaco on the
+       hoya CPUCP start series (Gerrit 54862/54863), then the SAIL
+       notification (Gerrit 54579) and, not submitted, the VENTUNO Q reset
+       fixes and the Monaco clock back-end and RPMh data the ADSP needs.
+       OP-TEE: pull request 8053, then, not submitted, the Monaco PAS clocks
+       and pseudo-TA that start the DSPs. U-Boot: the VENTUNO Q series,
+       respun after its review on the U-Boot list, then, not submitted, the
+       Monaco SPL patches (monaco.mk TZ_IMAGE=u-boot-spl). -->
+  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="9f1d6711033c5e8336c6ba4b05e51837065b9f97" upstream="monza"/>
+  <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="952c17fd38a893d37bfb883dabbb14847c4c4ba0" upstream="monza"/>
   <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="205246892290e783722bb3543868d2ca12674be4" upstream="ventuno-q"/>
 </manifest>
