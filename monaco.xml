@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <include name="common.xml" />
+  <remote name="ldts"            fetch="https://github.com/ldts" />
+  <remote name="embeddedandroid" fetch="https://github.com/EmbeddedAndroid" />
+
+  <project path="build" remote="ldts" name="qcom-buildroot.git" revision="main">
+    <linkfile src="monaco.mk" dest="build/Makefile" />
+  </project>
+
+  <remove-project                      name="linaro-swg/linux.git" />
+  <remove-project                      name="OP-TEE/optee_os.git" />
+
+  <!-- Monaco support under upstream review plus patches not submitted yet
+       (DSPs, reset, U-Boot SPL, Linux). -->
+  <project path="linux"                remote="embeddedandroid" name="linux.git"                revision="985b2f70cf1528955befe96fde1d6151ca62683e" upstream="monza" clone-depth="1" />
+  <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="9f1d6711033c5e8336c6ba4b05e51837065b9f97" upstream="monza"/>
+  <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="952c17fd38a893d37bfb883dabbb14847c4c4ba0" upstream="monza"/>
+  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="205246892290e783722bb3543868d2ca12674be4" upstream="ventuno-q"/>
+</manifest>
