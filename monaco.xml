@@ -16,5 +16,5 @@
   <project path="linux"                remote="embeddedandroid" name="linux.git"                revision="0b282bab8776080e49a516cb326f2f0b2fa8a324" upstream="ventuno-q-v3" clone-depth="1" />
   <project path="arm-trusted-firmware" remote="embeddedandroid" name="arm-trusted-firmware.git" revision="4930db330cb03cfe2124f41bf1852cff9e7abd22" upstream="ventuno-q-v3"/>
   <project path="u-boot"               remote="embeddedandroid" name="u-boot.git"               revision="65bcabd0b7efc4b7a0bacefd3c8fa9b47b4eda17" upstream="ventuno-q-v3"/>
-  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="7178dbb97ebfcd699bec3a3ab0de85459545407e" upstream="ventuno-q-v3"/>
+  <project path="optee_os"             remote="embeddedandroid" name="optee_os.git"             revision="93ca86afabd279bd91a97eba94859793a9e8ad0d" upstream="monaco-pas"/>
 </manifest>
